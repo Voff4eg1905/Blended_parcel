@@ -1,14 +1,16 @@
+import storageApi from './js/storage';
+
+const STORAGE_KEY = 'userInfo';
 const form = document.querySelector('.js-contact-form');
-// console.log(form);
 
 initPage();
 
 const onInput = event => {
   const { name, value } = event.target;
-  let userData = localStorage.getItem('userInfo');
-  userData = userData ? JSON.parse(userData) : {};
+  const userData = storageApi.load(STORAGE_KEY) ?? {};
+
   userData[name] = value;
-  localStorage.setItem('userInfo', JSON.stringify(userData));
+  storageApi.save(STORAGE_KEY, userData);
 };
 
 const onFormSubmit = event => {
@@ -19,7 +21,7 @@ const onFormSubmit = event => {
     userData[key] = value;
   });
   console.log(userData);
-  localStorage.removeItem('userInfo');
+  storageApi.remove(STORAGE_KEY);
   event.currentTarget.reset();
 };
 
@@ -27,11 +29,10 @@ form.addEventListener('input', onInput);
 form.addEventListener('submit', onFormSubmit);
 
 function initPage() {
-  let savedData = localStorage.getItem('userInfo');
+  const savedData = storageApi.load(STORAGE_KEY);
   if (!savedData) {
     return;
   }
-  savedData = JSON.parse(savedData);
 
   Object.entries(savedData).forEach(([name, value]) => {
     form.elements[name].value = value;
