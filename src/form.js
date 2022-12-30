@@ -11,7 +11,20 @@ const onInput = event => {
   localStorage.setItem('userInfo', JSON.stringify(userData));
 };
 
+const onFormSubmit = event => {
+  event.preventDefault();
+  const userData = {};
+  const formInfo = new FormData(event.currentTarget);
+  formInfo.forEach((value, key) => {
+    userData[key] = value;
+  });
+  console.log(userData);
+  localStorage.removeItem('userInfo');
+  event.currentTarget.reset();
+};
+
 form.addEventListener('input', onInput);
+form.addEventListener('submit', onFormSubmit);
 
 function initPage() {
   let savedData = localStorage.getItem('userInfo');
@@ -21,7 +34,6 @@ function initPage() {
   savedData = JSON.parse(savedData);
 
   Object.entries(savedData).forEach(([name, value]) => {
-    console.log(name, value);
     form.elements[name].value = value;
   });
 }
