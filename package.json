@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://Voff4eg1905.github.io/Blended_parcel",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html -p 7777",
     "build": "parcel build src/*.html --public-url /Blended_parcel/"
   },
   "repository": {
