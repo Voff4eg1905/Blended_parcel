@@ -30,7 +30,8 @@ ul {
   border: 1px solid #303030;
 }
 
-.search-btn {
+.search-btn,
+.load-more {
   font-size: 14px;
   padding: 10px 20px;
   background-color: #2ecc71;
@@ -40,6 +41,11 @@ ul {
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 250ms linear;
+}
+
+.load-more {
+  display: block;
+  margin: 0 auto;
 }
 
 .search-btn:hover,
@@ -65,7 +71,23 @@ ul {
 
 .gallery-img {
   width: 100%;
-  height: 100%;
+  height: 309px;
   max-width: unset;
   object-fit: cover;
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.725);
+  opacity: 1;
+  background-size: cover;
+}
+
+.is-hidden {
+  display: none;
 }

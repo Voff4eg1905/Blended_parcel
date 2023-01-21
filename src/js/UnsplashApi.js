@@ -3,6 +3,7 @@ export class UnsplashApi {
   #apiKey = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
   #query = '';
   #page = 1;
+  #totalResults = 0;
 
   getPhotos() {
     const url = `${this.#baseUrl}?page=${this.#page}&query=${
@@ -23,5 +24,21 @@ export class UnsplashApi {
 
   set query(newQuery) {
     this.#query = newQuery;
+  }
+
+  setTotal(total) {
+    this.#totalResults = total;
+  }
+
+  hasMorePhotos() {
+    return this.#page < Math.ceil(this.#totalResults / 15);
+  }
+
+  incrementPage() {
+    this.#page += 1;
+  }
+
+  resetPage() {
+    this.#page = 1;
   }
 }
