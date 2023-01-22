@@ -1,0 +1,2 @@
+["React","Vue","Angular"].map((function(e){return new Promise(((o,r)=>{const n=Math.ceil(2e3*Math.random());setTimeout((()=>{n<500?o({framework:e,delay:n}):r({framework:e,delay:n,error:"Promise error"})}),n)}))}));new Promise(((e,o)=>{e("1")})).then((e=>(console.log(e),e))).then((e=>{if(console.log(e),!e)throw new Error("Error in then!");return"2"})).then((e=>{console.log(e)})).catch((e=>{console.log(e)}));
+//# sourceMappingURL=index.cf6f4bfd.js.map
