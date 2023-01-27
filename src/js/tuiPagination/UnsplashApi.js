@@ -13,6 +13,14 @@ export class UnsplashApi {
     return data;
   }
 
+  async getPhotosByQuery(page) {
+    const url = `/photos?page=${page}&query=${
+      this.#query
+    }&per_page=15&color=black`;
+    const { data } = await axios.get(url);
+    return data;
+  }
+
   get query() {
     return this.#query;
   }
