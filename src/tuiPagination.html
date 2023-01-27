@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./js/tuiPagination/index.js"></script>
+</head>
+
+<body>
+    <section class="gallery-section">
+        <div class="container">
+            <form class="search-form js-search-form">
+                <input type="text" name="query" class="search-input" />
+                <button type="submit" class="search-btn">search</button>
+            </form>
+            <div id="pagination" class="tui-pagination"></div>
+            <ul class="gallery js-gallery list"></ul>
+        </div>
+        <button class="load-more is-hidden">Load more</button>
+    </section>
+    <div class="backdrop is-hidden">
+        <div class="spinner"></div>
+    </div>
+</body>
+
+</html>
