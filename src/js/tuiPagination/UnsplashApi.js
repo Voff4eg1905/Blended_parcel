@@ -8,16 +8,23 @@ export class UnsplashApi {
   #query = '';
 
   async getTrendingPhotos(page) {
-    const url = `/photos?page=${page}&query=city&per_page=15&color=black`;
-    const { data } = await axios.get(url);
+    const { data } = await axios.get('/photos', {params: {
+      page,
+      query: 'city',
+      per_page: 15,
+      color: 'black',
+    }});
+    
     return data;
   }
 
   async getPhotosByQuery(page) {
-    const url = `/photos?page=${page}&query=${
-      this.#query
-    }&per_page=15&color=black`;
-    const { data } = await axios.get(url);
+    const { data } = await axios.get('/photos', {params: {
+      page,
+      query: this.#query,
+      per_page: 15,
+      color: 'black',
+    }});
     return data;
   }
 
